@@ -1,0 +1,45 @@
+
+<div class="container">
+    <div class="card-header">
+        <h3>Registros de Usuarios</h3>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Tipo de Identificacion</th>
+                <th>Identificacion</th>
+                <th>Ciudad</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Observacion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios" class="text-center">
+                <td>{{usuario.id}} </td>
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.identificacion_tipo}}</td>
+                <td>{{usuario.identificacion}}</td>
+                <td>{{usuario.ciudad}}</td>
+                <td>{{usuario.direccion}}</td>
+                <td>{{usuario.telefono}}</td>
+                <td>{{usuario.observacion}}</td>
+                <td>
+                    <button  class="btn btn-secondary" (click)="this.editar(usuario)">Editar</button>
+                    <button class="btn btn-success" (click)="this.delete(usuario)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input (change)="this.onFilechange($event)" #fileUpload class="form-control" type="file" id="formFile">
+    <button type="button" class="btn btn-primary mt-3" (click)="this.upload()">Subir carga de usuarios</button> &nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary mt-3" (click)="this.downloadExcel()">Descargar informe usuarios</button> &nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary mt-3" (click)="this.uploadEditExcel()">Cargar edicion de usuarios</button>
+
+    <div class="containe">
+        <button (click)="agregar()" id="agregar" class="btn btn-info">Agregar nuevo registro</button>
+    </div>
+</div>
